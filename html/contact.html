@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About</title>
+  <link rel="stylesheet" href="../styles/style.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Rubik:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="icon" type="titleicon" href="../photos/Botanical-letter-A.png">
+</head>
+<body>
+  <header class="header">
+    <a href="#" class="logo"><span>A</span>thina</a>
+    <nav>
+      <ul class="navbar">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../html/about.html">About</a></li>
+        <li><a href="../html/gallary.html">Gallery</a></li>
+        <li><a href="../html/contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+
+    <aside class="menu-btn">
+      <span>menu</span>
+      <div class="bx bx-menu" id="menu-icon"></div>
+    </aside>
+  </header>
+
+  <main class="container2">
+    <img src="img/shape.png" class="square" alt="" />
+    <section class="form">
+      <article class="contact-info">
+        <h3 class="title">Let's get in touch</h3>
+        <p class="text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
+          dolorum adipisci recusandae praesentium dicta!
+        </p>
+
+        <address class="info">
+          <div class="information">
+            <img src="img/location.png" class="icon" alt="" />
+            <p>92 Cherry Drive Uniondale, NY 11553</p>
+          </div>
+          <div class="information">
+            <img src="img/email.png" class="icon" alt="" />
+            <p>lorem@ipsum.com</p>
+          </div>
+          <div class="information">
+            <img src="img/phone.png" class="icon" alt="" />
+            <p>123-456-789</p>
+          </div>
+        </address>
+
+        <div class="social-media">
+          <p>Connect with us :</p>
+          <div class="social-icons">
+              <a href="#"><i class='bx bxl-instagram' ></i></a>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="contact-form">
+        <span class="circle one"></span>
+        <span class="circle twoo"></span>
+
+        <form action="https://formsubmit.co/thijsvdbroek25@gmail.com" method="POST">
+          <h3 class="title">Contact us</h3>
+          <div class="input-container">
+            <input type="text" name="name" class="input" />
+            <label for="">Username</label>
+            <span>Username</span>
+          </div>
+          <div class="input-container">
+            <input type="email" name="email" class="input" />
+            <label for="">Email</label>
+            <span>Email</span>
+          </div>
+          <div class="input-container">
+            <input type="tel" name="phone" class="input" />
+            <label for="">Subject</label>
+            <span>Phone</span>
+          </div>
+          <div class="input-container textarea">
+            <textarea name="message" class="input"></textarea>
+            <label for="">Message</label>
+            <span>Message</span>
+          </div>
+          <input type="submit" value="Send" class="btn" id="btn" />
+        </form>
+      </article>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="../js/script.js"></script>
+</body>
+</html>
