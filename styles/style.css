@@ -11,6 +11,8 @@
   --bg-color: #89cff0;
   --text-color: #ffffff;
   --main-color: #000000;
+  --orange-color: #FF5349;
+  --buttons-maintext-color: #3b3b3b;
   --big-font: 5rem;
   --p-font: 1.1rem;
 }
@@ -33,18 +35,18 @@ header{
   transition: all ease .45s;
 }
 .header.scroll {
-  background-color: #2d2d2d; 
+  background-color: #686868; 
   transition: background-color 0.3s ease;
   transition: padding 1s ease;
   padding: 0.5rem 8%;
 }
 .logo{
-  color: var(--text-color);
+  color: #ffffff;
   font-size: 41px;
   font-weight: 600;
 }
 .logo span{
-  color: var(--main-color);
+  color: var(--orange-color);
 }
 .navbar{
   display: flex;
@@ -52,20 +54,20 @@ header{
 .navbar a{
   font-size: var(--p-font);
   font-weight: 500;
-  color: var(--text-color);
+  color: #141414;
   margin: 0 25px;
   transition: all ease .50s;
 }
 .navbar a:hover{
-  color: var(--main-color);
+  color: var(--orange-color);
 }
 .navbar a.active{
-  color: var(--main-color);
+  color: var(--orange-color);
 }
 .menu-btn{
   background: linear-gradient(130.08deg, #383528 0%, #191919 100%);
   box-shadow: 0px 20px 40px #00000070;
-  border: 1px solid #3b3b3b;
+  border: 1px solid var(  --buttons-maintext-color);
   padding: 10px 20px;
   border-radius: 100px;
   display: flex;
@@ -83,7 +85,7 @@ header{
   height: 300px;
   border-radius: 50%;
   overflow: hidden;
-  border: 15px solid var(--second-bg-color);
+  border: 15px solid var(--orange-color);
   box-shadow: 5px 7px 25px rgba(0, 0, 0, 0.5);
   animation: Zoom 1s ease forwards, Float 4s ease-in-out infinite;
   animation-delay: 2s,3s;
@@ -125,7 +127,7 @@ section{
   padding: 5px 25px;
   background: linear-gradient(130.08deg, #383528 0%, #191919 100%);
   box-shadow: 0px 20px 40px #00000070;
-  border: 1px solid #3b3b3b;
+  border: 1px solid var(  --buttons-maintext-color);
   border-radius: 100px;
   color: var(--text-color);
   font-weight: 700;
@@ -139,35 +141,35 @@ section{
 .home-text p{
   font-size: var(--p-font);
   font-weight: 400;
-  color: #c3c3c3;
+  color: #ffffff;
   line-height: 30px;
   margin-bottom: 30px;
 }
 .btn1{
   display: inline-block;
   padding: 14px 34px;
-  background: var(--main-color);
+  background: var(  --buttons-maintext-color);
   color: var(--text-color);
-  border: 2px solid var(--main-color);
+  border: 2px solid #141414;
   font-size: 16px;
   font-weight: 600;
   border-radius: 8px;
   transition: all 0.6s ease-in-out;
 }
 .btn1:hover{
-  transform: translateY(-5px);
-  background: transparent;
-  color: var(--main-color);
+  color: #ffffff;
+  background: var(--orange-color);
+  border: 2px solid var(--text-color);
 }
 .two{
-  background: #141414;
-  border: 2PX SOLID #141414;
+  background: var(  --buttons-maintext-color);
+  border: 2PX SOLID var(  --buttons-maintext-color);
   color: var(--text-color);
   margin-left: 25px;
 }
 .two:hover{
-  color: #141414;
-  background: var(--text-color);
+  color: #ffffff;
+  background: var(--orange-color);
   border: 2px solid var(--text-color);
 }
 .share{
@@ -190,7 +192,7 @@ section{
   width: 45px;
   background: linear-gradient(130.08deg, #383528 0%, #191919 100%);
   box-shadow: 0px 20px 40px #00000070;
-  border: 1px solid #3b3b3b;
+  border: 1px solid var(--buttons-maintext-color);
   border-radius: 50%;
   color: var(--text-color);
   font-size: 20px;
@@ -199,6 +201,7 @@ section{
 }
 .social i:hover{
   transform: translateY(-10px);
+  color: var(--orange-color);
 }
 @media (max-width: 1850px){
   header{
