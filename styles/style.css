@@ -80,8 +80,9 @@ header{
 }
 
 .home-img .hero-pic {
-  width: 300px;
-  height: 300px;
+  width: 400px;
+  object-fit: cover;
+  height: 400px;
   border-radius: 50%;
   overflow: hidden;
   border: 15px solid var(--orange-color);
