@@ -1,5 +1,3 @@
-// gallery, image slider
-
 let nextBtn = document.querySelector("#next");
 let prevBtn = document.querySelector("#prev");
 let slides = document.querySelectorAll(".slide");
@@ -39,13 +37,6 @@ prevBtn.addEventListener("click", function () {
     slides[changeSlide].classList.add("show");
   }
 });
-
-
-
-
-
-
-//HEADER SCROLL ANIMATION
 
 const inputs = document.querySelectorAll(".input");
 
