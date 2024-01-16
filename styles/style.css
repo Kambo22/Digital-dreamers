@@ -7,19 +7,35 @@
   text-decoration: none;
 }
 
-:root {
+:root{
   --bg-color: #89cff0;
+  --second-bg-color:#79c8ed;
   --text-color: #ffffff;
+  --contact-color: #ffffff;
+  --nav-color: #141414;
   --main-color: #000000;
-  --orange-color: #ff5349;
+  --orange-color: #FF5349;
   --buttons-maintext-color: #3b3b3b;
   --big-font: 5rem;
   --p-font: 1.1rem;
+}
+.dark-theme{
+  --bg-color: black;
+  --second-bg-color: #131313;
+  --text-color: white;
+  --nav-color: white;
+  --contact-color: #ababab;
+  --orange-color: #FF5349;
 }
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
   overflow-x: hidden;
+}
+#icon {
+  width: 28px;
+  margin-right: 0.7rem;
+  margin-left: 10px;
 }
 header {
   position: fixed;
@@ -39,6 +55,7 @@ header {
   transition: background-color 0.3s ease;
   transition: padding 1s ease;
   padding: 0.5rem 8%;
+  z-index: 9999999999;
 }
 .logo {
   color: #ffffff;
@@ -51,10 +68,11 @@ header {
 .navbar {
   display: flex;
 }
+
 .navbar a {
   font-size: var(--p-font);
   font-weight: 500;
-  color: #141414;
+  color: var(--nav-color);
   margin: 0 25px;
   transition: all ease 0.5s;
 }
@@ -77,6 +95,10 @@ header {
   font-size: 28px;
   margin-left: 10px;
   z-index: 6;
+  display: none;
+}
+.menu-btn span{
+  display: none;
 }
 
 .home-img .hero-pic {
@@ -283,6 +305,10 @@ section {
     background: #2d2d2d;
     transition: all 0.4s ease-in-out;
   }
+  .menu-btn span, #menu-icon{
+    display: block;
+  }
+
   .navbar a {
     display: block;
     color: #c3c3c3;
@@ -327,7 +353,7 @@ section {
   height: 100vh;
   justify-content: space-between;
   gap: 30px;
-  margin-top: 20px;
+  margin-bottom: 20px
 }
 
 /* Defines the styles for the image in the "about" section */
@@ -337,12 +363,16 @@ section {
   width: 100%;
   border-radius: 8px; /* Adds rounded corners to the image */
 }
+.about-img img{
+  width: 70%;
+  border-radius: 10px;
+}
 
 /* Defines the styles for the headings in the "about" section */
 .about-text h2 {
   font-size: 3rem;
   line-height: 1;
-  color: var(--main-color);
+  color: var(--orange-color);
   margin-top: 5rem;
   margin-bottom: 2rem;
 }
@@ -352,7 +382,10 @@ section {
   color: var(--text-color);
   font-size: var(--p-font);
   line-height: 1.5;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+}
+.about-text .hidden {
+  display: none;
 }
 @media (max-width: 920px) {
   .about {
@@ -388,34 +421,6 @@ section {
   gap: 30px;
   margin-top: 100px;
 }
-.container .heading {
-  width: 100%;
-  padding-bottom: 50px;
-}
-.container .heading h3 {
-  font-size: 3em;
-  padding-bottom: 10px;
-  font-weight: bolder;
-  border-bottom: 3px solid #222;
-}
-.container .heading h3 span {
-  font-weight: 100;
-}
-
-.container .btn {
-  margin: 40px 0 70px 0;
-  background: #222;
-  padding: 15px 40px;
-  border-radius: 5px;
-}
-
-.container .btn a {
-  color: white;
-  font-size: 1.2em;
-  text-decoration: none;
-  font-weight: bolder;
-  letter-spacing: 3px;
-}
 
 .row {
   display: flex;
@@ -424,22 +429,23 @@ section {
   padding: 0 4px;
 }
 
-.column img {
-  margin-top: 8px;
-  vertical-align: middle;
-  width: 100%;
-  max-width: 100%;
-}
 .column {
   position: relative;
   flex: 25%;
   max-width: 25%;
   padding: 0 4px;
 }
+
+.column.twooo {
+  flex: 25%;
+  max-width: 25%;
+}
+
 .image-container {
   position: relative;
   margin-top: 8px;
 }
+
 .image-container .image-title {
   position: absolute;
   top: 0;
@@ -455,11 +461,13 @@ section {
   transition: 0.6s;
   overflow: hidden;
 }
+
 .image-container img {
   margin: 0;
   padding: 0;
   width: 100%;
 }
+
 .image-container figcaption {
   font-size: 20px;
   color: #fff;
@@ -470,15 +478,37 @@ section {
   opacity: 1;
 }
 
-@media screen and (max-width: 800px) {
+@media only screen and (max-width: 766px) {
+  .image-container .image-title {
+    opacity: 1;
+    transition: none;
+    position: relative; /* Set position to relative */
+    top: -100%; /* Move titles above the image */
+    background: rgba(0, 0, 0, 0.8);
+  }
+
   .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+
+  .column.twooo {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .column,
+  .column.twooo {
     flex: 50%;
     max-width: 50%;
   }
 }
 
 @media screen and (max-width: 550px) {
-  .column {
+  .column,
+  .column.twooo {
     flex: 100%;
     max-width: 100%;
   }
@@ -486,10 +516,15 @@ section {
 
 @media only screen and (max-width: 643px) {
   .container .heading h3 {
-    font-size: 1em;
+    font-size: 2em;
   }
 }
-
+.container .heading h3 {
+  font-size: 3em;
+  padding-bottom: 10px;
+  font-weight: bolder;
+  border-bottom: 3px solid #222;
+}
 body,
 input,
 textarea {
@@ -510,7 +545,7 @@ textarea {
 .form {
   width: 100%;
   max-width: 1000px;
-  background-color: #ffffff;
+  background-color: var(--contact-color);
   border-radius: 10px;
   box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.1);
   z-index: 1000;
@@ -581,7 +616,7 @@ form {
 .input {
   width: 100%;
   outline: none;
-  border: 2px solid #fafafa;
+  border: 2px solid var(--contact-color);
   background: none;
   padding: 0.6rem 1.2rem;
   color: #fff;
@@ -622,7 +657,7 @@ textarea.input {
 .btn {
   padding: 0.6rem 1.3rem;
   background-color: #ff5349;
-  border: 2px solid #fafafa;
+  border: 2px solid var(--contact-color);
   font-size: 0.95rem;
   color: #ffffff;
   line-height: 1;
@@ -867,16 +902,17 @@ textarea.input {
   }
 }
 
+
 #slideContainer {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  height: 650px;
+  height: auto;
 }
 .sliderBtn {
   position: absolute;
-  background-color: rgba(48, 5, 50, 0.5);
+  background-color: rgba(248, 61, 47, 0.5);
   border: none;
   color: white;
   padding: 1rem;
@@ -889,17 +925,20 @@ textarea.input {
   outline: none;
 }
 .sliderBtn:hover {
-  background-color: rgba(48, 5, 50, 1);
+  background-color: rgba(248, 61, 47, 0.99);
 }
 #prev {
-  left: 20%;
-  top: 55%;
+  position: absolute;
   border-radius: 10px;
+  top: auto;
+  left: 10%;
 }
 #next {
-  right: 20%;
-  top: 55%;
+  position: absolute;
   border-radius: 10px;
+  top: auto;
+  right: 10%;
+  
 }
 .slide {
   display: none;
@@ -923,6 +962,9 @@ textarea.input {
   display: block;
   margin: auto;
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.pp{
+  width: 100%;
 }
 @media screen and (max-width: 722px) {
   #slideContainer {
@@ -1032,4 +1074,149 @@ textarea.input {
   to {
     opacity: 1;
   }
+}
+#main{
+  height: 100%;
+  width: 100%;
+  font-family: 'Lilita One', sans-serif;
+  display: flex;
+  flex-direction: column;
+  
+  align-items: center;
+  gap: 30px;
+}
+
+#wrapper{
+  height: 90vh ;
+  width: 90%;
+  left: 5%;
+  display: flex;
+  border-radius: 10px;
+  border: 3px solid black;
+  padding: 20px 50px;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+  
+}
+
+#wrapper i{
+  font-size: 25px;
+  pointer-events: none
+}
+#image-container{
+  height: 100%;
+  width: 60%;
+  overflow: hidden;
+  padding: 0px 30px;
+  
+}
+#image-carousel{
+  display: flex;
+  height: 100%;
+  width: 100%;
+  gap: 100px;
+  position: relative;
+}
+#image-carousel img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 25px;
+  position: absolute;
+  transition: 1s; 
+  
+  padding: 0px 15px;
+}
+button{
+  
+  
+  cursor: pointer;
+  padding: 10px;
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.body2{
+  background-color: var(--bg-color);
+  justify-content: center;
+  display: flex;
+}
+.boxblog{
+  background-color: var(--second-bg-color);
+  padding: 10px;
+  border-radius: 1.5rem;
+  margin-top: 68px;
+}
+.boxblog {
+  flex-direction: column;
+  
+}
+
+.content {
+  position: relative;
+}
+/*this is the styling for the animation of the text you can see in evey learning outcome*/
+
+.documentation p{
+  margin-bottom: 20px;
+  font-size: 26px;
+}
+.documentation .smallp{
+  font-size: 20px;
+  margin: 0;
+}
+.documentation .rsmallp{
+  font-size: 15px;
+  margin: 0;
+}
+.documentation{
+  margin-top: 20px;
+  background-color: var(--second-bg-color);
+  padding: 15px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+}
+.h41 {
+  font-size: 25px;
+  font-family: "brandon", sans-serif;
+  display: block;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  color: white;
+  margin-bottom: 20px;
+  border-bottom: 2px solid white;
+}
+.content{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
