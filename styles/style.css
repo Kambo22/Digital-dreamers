@@ -1035,6 +1035,7 @@ textarea.input {
 
 .all-chapters {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 500px;
   gap: 20px;
@@ -1045,10 +1046,11 @@ textarea.input {
   flex: 0 0 auto;
   opacity: 0;
   animation: fadeIn 1s ease-in-out forwards;
+  width: calc(100% / 3); /* initially, three items per row */
 }
 
 .chapter img {
-  width: 300px;
+  width: 100%;
   border-radius: 20px;
   display: block;
   margin: auto;
@@ -1058,9 +1060,8 @@ textarea.input {
   background: var(--buttons-maintext-color);
   border: 2px SOLID var(--buttons-maintext-color);
   color: var(--text-color);
-  margin-right: 25px;
-  margin-top: 10px;
-  width: 300px;
+  margin: 10px auto;
+  width: 100%;
 }
 
 .chapter:nth-child(1) {
@@ -1083,6 +1084,22 @@ textarea.input {
     opacity: 1;
   }
 }
+
+/* Add a media query for screens smaller than 900px */
+@media screen and (max-width: 900px) {
+  .chapter {
+    width: calc(100% / 2); /* two items per row */
+  }
+}
+
+/* Add a media query for screens smaller than 600px */
+@media screen and (max-width: 600px) {
+  .chapter {
+    width: 100%; /* one item per row */
+  }
+}
+
+
 #main{
   height: 100%;
   width: 100%;
@@ -1241,7 +1258,7 @@ button{
   left: 0;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 1050px) {
   .content {
     flex-direction: column-reverse;
   }
