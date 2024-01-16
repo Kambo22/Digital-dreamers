@@ -42,16 +42,8 @@
 
         <address class="info">
           <div class="information">
-            <img src="img/location.png" class="icon" alt="" />
-            <p>92 Cherry Drive Uniondale, NY 11553</p>
-          </div>
-          <div class="information">
             <img src="img/email.png" class="icon" alt="" />
             <p>athinakub@gmail.com</p>
-          </div>
-          <div class="information">
-            <img src="img/phone.png" class="icon" alt="" />
-            <p>123-456-789</p>
           </div>
         </address>
 
@@ -68,27 +60,19 @@
         <span class="circle one"></span>
         <span class="circle twoo"></span>
 
-        <form method="post">
+        <form id="myForm">
           <h3 class="title">Contact us</h3>
           <div class="input-container">
-            <input type="text" name="name" class="input" />
-            <label for="">Username</label>
-            <span>Username</span>
+            <input type="text" name="name" class="input" placeholder="Username"/>
           </div>
           <div class="input-container">
-            <input type="email" name="email" class="input" />
-            <label for="">Email</label>
-            <span>Email</span>
+            <input type="email" name="email" class="input" placeholder="email" />
           </div>
           <div class="input-container">
-            <input type="tel" name="phone" class="input" />
-            <label for="">Subject</label>
-            <span>Phone</span>
+            <input type="tel" name="phone" class="input" placeholder="subject"/>
           </div>
           <div class="input-container textarea">
-            <textarea name="message" class="input"></textarea>
-            <label for="">Message</label>
-            <span>Message</span>
+            <textarea name="message" class="input" placeholder="put in your message"></textarea>
           </div>
           <input type="submit" value="Send" class="btn" id="btn" />
         </form>
@@ -97,6 +81,7 @@
   </main>
 
   <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="/js/mail.js"></script>
   <script src="/js/headerscroll.js"></script>
 </body>
 </html>

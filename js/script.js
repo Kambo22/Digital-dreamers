@@ -4,41 +4,57 @@ let nextBtn = document.querySelector("#next");
 let prevBtn = document.querySelector("#prev");
 let slides = document.querySelectorAll(".slide");
 let changeSlide = 0;
-// console.log(changeSlide);
-nextBtn.addEventListener("click", function () {
-  slides.forEach(function (slide, index) {
-    if (slide.classList.contains("show") === true) {
-      changeSlide = index + 1;
-      slide.classList.remove("show");
-    }
-  });
-  //   console.log(changeSlide);
-  if (changeSlide < slides.length) {
-    slides[changeSlide].classList.add("show");
-  } else {
-    changeSlide = 0;
-    slides[changeSlide].classList.add("show");
-  }
-});
-// console.log(changeSlide);
-prevBtn.addEventListener("click", function () {
-  slides.forEach(function (slide, index) {
-    if (slide.classList.contains("show") === true) {
-      changeSlide = index - 1;
-      slide.classList.remove("show");
-    }
-  });
-  // console.log(changeSlide);
+let startTouch = null;
 
-  if (changeSlide < slides.length && changeSlide > -1) {
-    slides[changeSlide].classList.add("show");
-  } else {
-    // console.log(slides.length);
-
-    changeSlide = slides.length - 1;
-    slides[changeSlide].classList.add("show");
-  }
+window.addEventListener('touchstart', function(event) {
+    startTouch = event.touches[0].clientX;
 });
+
+window.addEventListener('touchend', function(event) {
+    let endTouch = event.changedTouches[0].clientX;
+    let diff = startTouch - endTouch;
+
+    if (diff > 70) { // swipe left
+        nextSlide();
+    } else if (diff < -70) { // swipe right
+        prevSlide();
+    }
+});
+
+function nextSlide() {
+    slides.forEach(function (slide, index) {
+        if (slide.classList.contains("show") === true) {
+            changeSlide = index + 1;
+            slide.classList.remove("show");
+        }
+    });
+
+    if (changeSlide < slides.length) {
+        slides[changeSlide].classList.add("show");
+    } else {
+        changeSlide = 0;
+        slides[changeSlide].classList.add("show");
+    }
+}
+
+function prevSlide() {
+    slides.forEach(function (slide, index) {
+        if (slide.classList.contains("show") === true) {
+            changeSlide = index - 1;
+            slide.classList.remove("show");
+        }
+    });
+
+    if (changeSlide < slides.length && changeSlide > -1) {
+        slides[changeSlide].classList.add("show");
+    } else {
+        changeSlide = slides.length - 1;
+        slides[changeSlide].classList.add("show");
+    }
+}
+
+nextBtn.addEventListener("click", nextSlide);
+prevBtn.addEventListener("click", prevSlide);
 
 
 
